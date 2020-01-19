@@ -12,7 +12,7 @@ class ImageUploadHandler
 
   public function save($file, $folder, $file_prefix, $max_width = false)
   {
-    // 构建储存文件的规则，eg:upload/images/avators/202001/19/
+    // 构建储存文件的规则，eg:upload/images/avatars/202001/19/
     // 文件夹切割能让查找效率更高
     $folder_name = "upload/images/$folder/" . date('Ym/d', time());
     // 文件具体储存的物理路径，`public_path` 获取得是 `public` 文件夹中的路径
