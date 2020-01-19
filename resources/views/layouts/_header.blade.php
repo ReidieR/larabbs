@@ -23,7 +23,7 @@
         @else
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="https://cdn.learnku.com/uploads/avatars/55185_1576915373.jpeg!/both/100x100" class="img-responsive img-circle" width="30px" height="30px">
+            <img src="{{ $user->avator }}" class="img-responsive img-circle" width="30px" height="30px">
             {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
