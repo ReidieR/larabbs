@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,14 @@ class UsersController extends Controller
     }
 
     // 编辑资料
-    public function edit()
+    public function edit(User $user)
     {
+        return view('users.edit', compact('user'));
     }
     // 更新资料
-    public function update()
+    public function update(UserRequest $request, User $user)
     {
+        $user->update($request->all());
+        return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功');
     }
 }
