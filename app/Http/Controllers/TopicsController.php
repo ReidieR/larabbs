@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 
@@ -16,7 +15,7 @@ class TopicsController extends Controller
 
 	public function index()
 	{
-		$topics = Topic::with('user', 'category')->paginate(30);
+		$topics = Topic::with('user', 'category')->paginate(10);
 		return view('topics.index', compact('topics'));
 	}
 
