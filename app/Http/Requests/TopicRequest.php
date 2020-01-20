@@ -6,36 +6,31 @@ class TopicRequest extends Request
 {
     public function rules()
     {
-        switch($this->method())
-        {
-            // CREATE
+        switch ($this->method()) {
+                // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
-            // UPDATE
             case 'PUT':
-            case 'PATCH':
-            {
-                return [
-                    // UPDATE ROLES
-                ];
-            }
+            case 'PATCH': {
+                    return [
+                        'title' => 'required|min:3',
+                        'body' => 'required|min:10',
+                        'category_id' => 'required|numeric'
+                    ];
+                }
             case 'GET':
             case 'DELETE':
-            default:
-            {
-                return [];
-            }
+            default: {
+                    return [];
+                }
         }
     }
 
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' => '标题最少为三个字符',
+            'body.min' => '内容最少为10个字符',
+            'body.required' => '内容 不能为空'
         ];
     }
 }
