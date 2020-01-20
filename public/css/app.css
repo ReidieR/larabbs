@@ -17293,7 +17293,7 @@ body {
   font-size: 14px;
 }
 
-/* header */
+/* 顶部导航 */
 
 .navbar-static-top {
   border-color: #e7e7e7;
@@ -17305,7 +17305,7 @@ body {
   margin-top: 0px;
 }
 
-/* Sticky footer styles */
+/* 底部 */
 
 html {
   position: relative;
@@ -17340,12 +17340,45 @@ body {
   color: inherit;
 }
 
-/* User register page */
+/* 用户注册页面 */
 
 .register-page img.captcha {
   cursor: pointer;
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 3px;
+}
+
+/* 话题页面 */
+
+.topics-index-page .topic-list .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 14px;
+  font-size: 0.9em;
+}
+
+.topics-index-page .topic-list a {
+  color: #444444;
+}
+
+.topics-index-page .topic-list .meta {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
+.topics-index-page .topic-list .meta a {
+  color: #b3b3b3;
+}
+
+.topics-index-page .topic-list .badge {
+  background-color: #d8d8d8;
+}
+
+.topics-index-page .topic-list hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #dcebf5;
 }
 
