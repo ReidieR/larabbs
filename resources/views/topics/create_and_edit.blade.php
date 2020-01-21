@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', isset($topic->id) ? '编辑话题': '新建话题')
+
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/simditor.css') }}">
 @stop
@@ -34,8 +36,6 @@
           @include('common.error')
 
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-          
                 <div class="form-group">
                   <input class="form-control" 
                   placeholder="请填写标题"
@@ -77,7 +77,17 @@
 <script>
 $(document).ready(function(){
   let editor = new Simditor({
-    textarea:$('textarea')
+    textarea:$('textarea'),
+    upload:{
+      url: '{{ route('topics.upload_image') }}',
+      params: {
+        _token: '{{ csrf_token() }}',
+      },
+      fileKey: 'upload_file',
+      connectionCount: 3,
+      leaveConfirm: '文件上传中，关闭此页面将取消上传'
+    },
+    pasteImage:true, 
   })
 })
 </script>
