@@ -5,7 +5,6 @@
 @section('description', $topic->excerpt)
 
 
-
 @section('content')
 
 <div class="row">

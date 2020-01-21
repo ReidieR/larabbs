@@ -12,7 +12,7 @@ class TopicRequest extends Request
             case 'PUT':
             case 'PATCH': {
                     return [
-                        'title' => 'required|min:3',
+                        'title' => 'required|min:2',
                         'body' => 'required|min:10',
                         'category_id' => 'required|numeric'
                     ];
