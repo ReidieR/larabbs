@@ -46,7 +46,7 @@
                   <select name="category_id" class="form-control" id="category_id" required>
                     <option value="" hidden disabled selected>请选择分类</option>
                     @foreach ($categories as $item)
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option value="{{ $item->id }}" {{ $topic->category_id == $item->id ?'selected':''}}>{{ $item->name }}</option>
                     @endforeach 
                   </select>
                 </div> 
