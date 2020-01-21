@@ -43,4 +43,12 @@ class Topic extends Model
         // 此时会触发框架对数据模型的 updated_at 时间戳进行更新
         return $query->orderBy('updated_at', 'desc');
     }
+    public function link($params = [])
+    {
+        $slug = $this->slug;
+        if ($slug == 'edit') {
+            $slug = 'edit-larabbs';
+        }
+        return route('topics.show', array_merge([$this->id, $slug], $params));
+    }
 }
