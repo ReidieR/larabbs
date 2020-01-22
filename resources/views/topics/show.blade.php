@@ -6,9 +6,8 @@
 
 
 @section('content')
-
+{{-- 话题内容展示 --}}
 <div class="row">
-
   <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
     <div class="card ">
       <div class="card-body">
@@ -26,7 +25,6 @@
       </div>
     </div>
   </div>
-
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 topic-content">
     <div class="card ">
       <div class="card-body">
@@ -66,6 +64,16 @@
         @endcan
       </div>
     </div>
+    {{-- 用户回复列表 --}}
+    <div class="card topic-reply mt-4">
+      <div class="card-body">
+          @include('topics._reply_box', ['topic' => $topic])
+          @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+      </div>
+</div>
+</div>
+</div>
+
   </div>
 </div>
 
