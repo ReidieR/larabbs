@@ -51,4 +51,9 @@ class Topic extends Model
         }
         return route('topics.show', array_merge([$this->id, $slug], $params));
     }
+    // 关联回复
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }
