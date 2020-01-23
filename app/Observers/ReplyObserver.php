@@ -25,7 +25,7 @@ class ReplyObserver
 
     public function deleted(Reply $reply)
     {
-        // 更行话题品论数量
+        // 更新话题品论数量
         $reply->topic->updateReplyCount();
     }
 }
