@@ -13,8 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-		 \App\Models\Reply::class => \App\Policies\ReplyPolicy::class,
-		 \App\Models\Topic::class => \App\Policies\TopicPolicy::class,
+        \App\Models\Reply::class => \App\Policies\ReplyPolicy::class,
+        \App\Models\Topic::class => \App\Policies\TopicPolicy::class,
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
@@ -31,6 +31,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::guessPolicyNamesUsing(function ($modelClass) {
             // 动态返回模型对应的策略名称，如：// 'App\Models\User' => 'App\Policies\UserPolicy'
             return 'App\Policies\\' . class_basename($modelClass) . 'Policy';
+        });
+
+        // 用户切换仪表盘只有站长能够使用
+        \Horizon::auth(function ($requset) {
+            // 是否站长
+            return \Auth::user()->hasRole('Founder');
         });
     }
 }
