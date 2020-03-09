@@ -7,7 +7,8 @@
 
   {{-- csrf_token --}}
   <meta name="csrf_token" content="{{ csrf_token() }}">
-  <meta name="description" content="@yield('description','LaraBBS 爱好者社区')">
+  <meta name="description" content="@yield('description',setting('seo_description','LaraBBS 爱好者社区'))">
+  <meta name="description" content="@yield('keyword',setting('seo_keyword','论坛、社区、开发'))">
   <title>@yield('title')-laravel进阶教程</title>
   {{-- styles --}}
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
