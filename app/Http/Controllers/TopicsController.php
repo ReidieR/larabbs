@@ -24,8 +24,7 @@ class TopicsController extends Controller
 		$topics = $topic->withOrder($request->order)
 			->with('user', 'category')		// 预加载防止n+1问题
 			->paginate(10);
-		$active_users = $user->getActiveUsers();
-		return view('topics.index', compact('topics', 'active_users'));
+		return view('topics.index', compact('topics'));
 	}
 
 	public function show(Topic $topic, Request $request)

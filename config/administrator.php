@@ -70,7 +70,8 @@ return array(
             'replies',
         ],
         '站点管理' => [
-            'settings.sites'
+            'settings.sites',
+            'links',
         ],
     ],
     /*
