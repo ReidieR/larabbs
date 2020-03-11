@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
         // 单独处理第一个用户的数据
         $user = User::find(1);
         $user->name = 'Reid';
-        $user->avatar = 'http://larabbs.test/upload/images/avators/202001/19/1_1579439745_vzNbhRiByf.jpg';
+        $user->avatar = 'http://larabbs.test/upload/images/avatars/202001/19/1_1579439745_vzNbhRiByf.jpg';
         $user->email = 'weqwe@1414.com';
         $user->assignRole('Founder');
         $user->save();
