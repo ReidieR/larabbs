@@ -13,7 +13,7 @@ class VerificationCodesController extends Controller
     {
         $phone = $request->phone;
 
-        if (!app()->enviroment('production')) {
+        if (!app()->environment('production')) {
             $code = '1234';
         } else {
             // 生成思维随机数,左侧补0
@@ -28,15 +28,15 @@ class VerificationCodesController extends Controller
                 $message = $exception->getException('aliyun')->getMessage();
                 abort(500, $message ?: '短信发送异常');
             }
-
-            $key = 'verificationCodes_' . Str::random(15);
-            $expiredAt = now()->addMinutes(5);
-            // 缓存验证码5分钟过期
-            \Cache::put($key, ['phone' => $phone, 'code' => $code], $expiredAt);
-            return response()->json([
-                'key' => $key,
-                'expeiredAt' => $expiredAt->toDateString(),
-            ])->setStatusCode(201);
         }
+
+        $key = 'verificationCodes_' . Str::random(15);
+        $expiredAt = now()->addMinutes(5);
+        // 缓存验证码5分钟过期
+        \Cache::put($key, ['phone' => $phone, 'code' => $code], $expiredAt);
+        return response()->json([
+            'key' => $key,
+            'expeiredAt' => $expiredAt->toDateString(),
+        ])->setStatusCode(201);
     }
 }
