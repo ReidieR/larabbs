@@ -23,6 +23,8 @@ Route::prefix('v1')
     ->group(function () {
         // 登录相关接口
         Route::middleware('throttle:' . config('api.rate_limits.sign'))->group(function () {
+            // 图片验证码
+            Route::post('captchas', 'CaptchasController@store')->name('catptchas.store');
             // 短信验证码
             Route::post('verificationCodes', 'VerificationCodesController@store')
                 ->name('verificationCodes.store');
