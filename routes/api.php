@@ -30,6 +30,10 @@ Route::prefix('v1')
                 ->name('verificationCodes.store');
             // 用户注册
             Route::post('users', 'UsersController@store')->name('users.store');
+            // 第三方登录
+            Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+                ->where('social_type', 'weixin')
+                ->name('socials.authorizations.store');
         });
         // 访问相关接口
         Route::middleware('throttle:' . config('api.rate_limits_access'))->group(function () {
