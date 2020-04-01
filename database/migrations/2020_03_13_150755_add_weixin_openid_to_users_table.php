@@ -15,7 +15,7 @@ class AddWeixinOpenidToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('weixin_openid')->unique()->nullable()->after('password');
-            $table->string('weixin_unionid')->unique()->nullbale()->after('weixin_openid');
+            $table->string('weixin_unionid')->unique()->nullable()->after('weixin_openid');
             $table->string('password')->nullable()->change();
         });
     }

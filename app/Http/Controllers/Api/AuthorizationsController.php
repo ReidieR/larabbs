@@ -37,7 +37,7 @@ class AuthorizationsController extends Controller
                 if ($unionid) {
                     $user = User::where('weixin_unionid', $unionid)->first();
                 } else {
-                    $user = User::where('weinxin_openid', $oauthUser->getId())->first();
+                    $user = User::where('weixin_openid', $oauthUser->getId())->first();
                 }
 
                 // 没有用户，默认创建一个用户
@@ -53,6 +53,6 @@ class AuthorizationsController extends Controller
                 break;
         }
 
-        return response()->json(['token' => '$user->id']);
+        return response()->json(['token' => $user->id]);
     }
 }
