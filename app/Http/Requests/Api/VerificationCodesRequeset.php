@@ -36,9 +36,3 @@ class VerificationCodesRequeset extends FormRequest
         ];
     }
 }
-
-$accessToken = '31_YAbRqPA6WiVC5RDY338lOTbMbe6lGLI65JZRWJp6i8SNTuKvFZ71bGXawumC8pXjf5HNeyCEx9BvnbCTY8uisw';
-$openID = 'o1lxf1OgtL-F-lr1UPMnQZrbKOu4';
-$driver = Socialite::driver('weixin');
-$driver->setOpenId($openID);
-$oauthUser = $driver->userFromToken($accessToken);

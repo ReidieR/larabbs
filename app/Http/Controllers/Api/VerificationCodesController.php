@@ -55,4 +55,3 @@ class VerificationCodesController extends Controller
         ])->setStatusCode(201);
     }
 }
-https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx0ede42553e8e456f&secret=57cd43e87c34f718538bf7ce1b674780&code=011MPpNT0JeNn22bvUNT05tqNT0MPpN6&grant_type=authorization_code
