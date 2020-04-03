@@ -9,19 +9,20 @@ class TopicRequest extends Request
         switch ($this->method()) {
                 // CREATE
             case 'POST':
-            case 'PUT':
-            case 'PATCH': {
-                    return [
-                        'title' => 'required|min:2',
-                        'body' => 'required|min:10',
-                        'category_id' => 'required|numeric'
-                    ];
-                }
-            case 'GET':
-            case 'DELETE':
-            default: {
-                    return [];
-                }
+                return [
+                    'title' => 'required|string',
+                    'body' => 'required|string',
+                    'category_id' => 'required|exists:categories,id',
+                ];
+                break;
+            case 'PATCH':
+                return [
+                    'title' => 'string',
+                    'body' => 'string',
+                    'category_id' => 'exists:categories,id',
+                ];
+
+                break;
         }
     }
 
