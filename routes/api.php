@@ -80,8 +80,10 @@ Route::prefix('v1')
                 Route::delete('topics/{topic}/replies/{reply}', 'RepliesController@destory')->name('topics.replies.destory');
                 // 消息通知列表
                 Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
-                // 通知统计
+                // 未读通知统计
                 Route::get('notifications/stats', 'NotificationsController@stats')->name('notifications.stats');
+                // 标记消息通知为已读
+                Route::patch('user/read/notifications', 'NotificationsController@read')->name('user.notifications.user');
             });
         });
     });
