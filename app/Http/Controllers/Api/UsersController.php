@@ -58,4 +58,11 @@ class UsersController extends Controller
         $user->update($attributes);
         return new UserResource($user);
     }
+
+    // 活跃用户
+    public function activedIndex(User $user)
+    {
+        UserResource::wrap('data');
+        return UserResource::collection($user->getActiveUsers());
+    }
 }
