@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')
     ->namespace('Api')
     ->name('api.v1.')
+    ->middleware('change-locale')
     ->group(function () {
         // 登录相关接口
         Route::middleware('throttle:' . config('api.rate_limits.sign'))->group(function () {
