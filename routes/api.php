@@ -78,6 +78,8 @@ Route::prefix('v1')
                 Route::post('topics/{topic}/replies', 'RepliesController@store')->name('topics.replies.store');
                 // 输出回复
                 Route::delete('topics/{topic}/replies/{reply}', 'RepliesController@destory')->name('topics.replies.destory');
+                // 消息列表
+                Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
             });
         });
     });
