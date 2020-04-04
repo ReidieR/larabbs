@@ -56,6 +56,8 @@ Route::prefix('v1')
 
             // 分类列表
             Route::get('categories', 'CategoriesController@index')->name('categories.index');
+            // 某个用户发布的话题
+            Route::get('users/{user}/topics', 'TopicsController@userindex')->name('users.topics.index');
             // 话题列表，详情
             Route::resource('topics', 'TopicsController')->only(['index', 'show']);
             // 登录后可以访问的接口
@@ -67,7 +69,7 @@ Route::prefix('v1')
                 // 上传图片
                 Route::post('images', 'ImagesController@store')->name('image.store');
                 //  发布话题
-                Route::resource('topics', 'TopicsController')->only('store', 'update', 'destory');
+                Route::resource('topics', 'TopicsController')->only(['store', 'update', 'destory']);
             });
         });
     });
