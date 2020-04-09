@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AuthorizationRequest;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
 use App\Models\User;
@@ -26,6 +25,7 @@ class AuthorizationsController extends Controller
                 }
             }
             $oauthUser = $driver->userFromToken($token);
+            dd($oauthUser);
         } catch (\Exception $e) {
             throw new AuthenticationException('参数错误，未获取用户信息');
         }
@@ -39,7 +39,6 @@ class AuthorizationsController extends Controller
                 } else {
                     $user = User::where('weixin_openid', $oauthUser->getId())->first();
                 }
-
                 // 没有用户，默认创建一个用户
                 if (!$user) {
                     $user = User::create([
@@ -49,7 +48,16 @@ class AuthorizationsController extends Controller
                         'weixin_unionid' => $unionid,
                     ]);
                 }
-
+                break;
+            case 'github':
+                $user = User::where('github_id', $oauthUser->getId())->first();
+                if (!$user) {
+                    $user = User::create([
+                        'name' => $oauthUser->getNickname(),
+                        'avatar' => $oauthUser->getAvatar(),
+                        'github_id' => $oauthUser->getId(),
+                    ]);
+                }
                 break;
         }
 

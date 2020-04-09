@@ -33,7 +33,7 @@ Route::prefix('v1')
             Route::post('users', 'UsersController@store')->name('users.store');
             // 第三方登录
             Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
-                ->where('social_type', 'weixin')
+                // ->where('social_type', ['weixin', 'github'])
                 ->name('socials.authorizations.store');
             // 登录
             Route::post('authorizations', 'AuthorizationsController@store')

@@ -23,6 +23,7 @@
     "overtrue/easy-sms": "^1.1",
     "overtrue/pinyin": "~4.0",
     "predis/predis": "~1.1",
+    "socialiteproviders/github": "dev-master",
     "socialiteproviders/weixin": "^4.0",
     "spatie/laravel-permission": "~3.0",
     "spatie/laravel-query-builder": "^2.8",
